@@ -1,5 +1,7 @@
 package Models;
 
+import java.text.NumberFormat;
+
 public class Salesman {
     private String cpfSalesman;
     private String nameSalesman;
@@ -21,5 +23,13 @@ public class Salesman {
 
     public double getSalarySalesman() {
         return salarySalesman;
+    }
+
+    @Override
+    public String toString() {
+        NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
+        return "  CPF: " + getCpfSalesman() +
+                ", name: " + getNameSalesman() +
+                ", salary: R$" + currencyFormat.format(getSalarySalesman())  + "\n";
     }
 }

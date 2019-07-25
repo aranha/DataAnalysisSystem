@@ -22,4 +22,11 @@ public class Customer {
     public String getBusinessAreaCustomer() {
         return businessAreaCustomer;
     }
+
+    @Override
+    public String toString() {
+        return "  CNPJ customer: " + getCnpjCustomer() +
+                ", name customer='" + getNameCustomer() +
+                ", business area customer='" + getCnpjCustomer() + "\n";
+    }
 }

@@ -6,17 +6,20 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-public final class ReadFile {
+public final class ReadWriteFile {
     private static String ARCHIVE_NAME = "file.txt";
     private static String SEPARATOR = "ç";
 
     public static void readFile(){
-        try (FileReader reader = new FileReader(ARCHIVE_NAME)){
-            BufferedReader buffer = new BufferedReader(reader);
+        try (
+                FileReader reader = new FileReader(ARCHIVE_NAME);
+                BufferedReader buffer = new BufferedReader(reader)
+        ){
+            TypeData typeData = TypeData.getInstance();
             String line = buffer.readLine();
             while (line != null){
                 List<String> regex = Arrays.asList(line.trim().split(SEPARATOR));
-                System.out.println(Integer.parseInt(regex.get(0)));
+                typeData.setTypeData(regex);
                 line = buffer.readLine();
             }
         } catch (IOException e) {

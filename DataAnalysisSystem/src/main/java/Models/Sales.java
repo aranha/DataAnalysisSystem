@@ -5,12 +5,12 @@ import java.util.List;
 public class Sales {
     private int idSales;
     private String nameSalesman;
-    private List<ItemSold> itensSaled;
+    private List<ItemSold> itemsSold;
 
-    public Sales(int idSales, String nameSalesman, List<ItemSold> itensSaled) {
+    public Sales(int idSales, String nameSalesman, List<ItemSold> itemsSold) {
         this.idSales = idSales;
         this.nameSalesman = nameSalesman;
-        this.itensSaled = itensSaled;
+        this.itemsSold = itemsSold;
     }
 
     public int getIdSales() {
@@ -21,7 +21,14 @@ public class Sales {
         return nameSalesman;
     }
 
-    public List<ItemSold> getItensSaled() {
-        return itensSaled;
+    public List<ItemSold> getItemsSold() {
+        return itemsSold;
+    }
+
+    @Override
+    public String toString() {
+        return  "  id sale: " + getIdSales() +
+                ", name saleman: " + getNameSalesman() +
+                ", list sales: " + getItemsSold() + "\n";
     }
 }

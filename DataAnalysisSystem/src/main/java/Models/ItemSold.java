@@ -28,4 +28,12 @@ public class ItemSold {
     public double getValueSold() {
         return valueSold;
     }
+
+    @Override
+    public String toString() {
+        return  "  id: " + getIdItemSold() +
+                ", quantity: " + getQuantityItemSold() +
+                ", price: R$" + getPriceItemSold() +
+                ", value sold: R$" + getValueSold() + "\n";
+    }
 }
