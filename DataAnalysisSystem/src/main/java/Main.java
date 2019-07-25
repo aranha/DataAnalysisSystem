@@ -1,6 +1,5 @@
 import Controllers.ReadWriteFile;
 import Controllers.ReportOutput;
-import Controllers.TypeData;
 
 public class Main {
     public static void main(String[] args) {
