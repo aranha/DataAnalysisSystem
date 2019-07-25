@@ -1,9 +1,13 @@
 import Controllers.ReadWriteFile;
+import Controllers.ReportOutput;
 import Controllers.TypeData;
 
 public class Main {
     public static void main(String[] args) {
         ReadWriteFile.readFile();
+        ReportOutput reportOutput = new ReportOutput();
+        System.out.println(reportOutput.getReport());
+        /*
         TypeData typeData = TypeData.getInstance();
 
         System.out.println("SALES BY SALESMAN LIST");
@@ -19,6 +23,6 @@ public class Main {
         System.out.println();
 
         System.out.println("SALESMAN LIST");
-        System.out.println(typeData.getSalesmanList());
+        System.out.println(typeData.getSalesmanList());*/
     }
 }

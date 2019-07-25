@@ -30,6 +30,6 @@ public class Salesman {
         NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
         return "  CPF: " + getCpfSalesman() +
                 ", name: " + getNameSalesman() +
-                ", salary: R$" + currencyFormat.format(getSalarySalesman())  + "\n";
+                ", salary: R" + currencyFormat.format(getSalarySalesman())  + "\n";
     }
 }

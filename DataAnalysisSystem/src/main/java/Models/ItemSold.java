@@ -1,5 +1,7 @@
 package Models;
 
+import java.text.NumberFormat;
+
 public class ItemSold {
     private int idItemSold;
     private int quantityItemSold;
@@ -31,9 +33,10 @@ public class ItemSold {
 
     @Override
     public String toString() {
+        NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
         return  "  id: " + getIdItemSold() +
                 ", quantity: " + getQuantityItemSold() +
                 ", price: R$" + getPriceItemSold() +
-                ", value sold: R$" + getValueSold() + "\n";
+                ", value sold: R" + currencyFormat.format(getValueSold()) + "\n";
     }
 }

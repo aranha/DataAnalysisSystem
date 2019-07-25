@@ -10,4 +10,6 @@ gradlew.bat
 settings.gradle
 /.metadata/
 /.recommenders/
+.vscode/
+*.txt
 /out/
