@@ -1,4 +1,4 @@
-package Controllers;
+package controllers;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -23,7 +23,7 @@ public final class ReadWriteFile {
                 line = buffer.readLine();
             }
         } catch (IOException e) {
-            System.out.println("File not found " + e.getMessage());
+            System.err.println("File not found " + e.getMessage());
         }
     }
 }

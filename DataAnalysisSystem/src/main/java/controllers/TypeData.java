@@ -1,9 +1,9 @@
-package Controllers;
+package controllers;
 
-import Models.Customer;
-import Models.ItemSold;
-import Models.Sales;
-import Models.Salesman;
+import models.Customer;
+import models.ItemSold;
+import models.Sales;
+import models.Salesman;
 
 import java.util.ArrayList;
 import java.util.Arrays;
