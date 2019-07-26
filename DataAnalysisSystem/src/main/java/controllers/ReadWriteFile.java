@@ -5,6 +5,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public final class ReadWriteFile {
+
+    private ReadWriteFile(){}
+
     public static void readFile(){
         String ARCHIVE_NAME = "file.txt";
         String SEPARATOR = "ç";
