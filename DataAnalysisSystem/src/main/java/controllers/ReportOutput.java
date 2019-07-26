@@ -5,10 +5,9 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import models.ItemSold;
-import models.Salesman;
 
 public class ReportOutput {
-    TypeData typeData = TypeData.getInstance();
+    private TypeData typeData = TypeData.getInstance();
     private double valueSaleOfWorstSalesman;
 
     private int amountCustomer(){

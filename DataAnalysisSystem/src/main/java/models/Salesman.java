@@ -13,23 +13,15 @@ public class Salesman {
         this.salarySalesman = salarySalesman;
     }
 
-    public String getCpfSalesman() {
-        return cpfSalesman;
-    }
-
     public String getNameSalesman() {
         return nameSalesman;
-    }
-
-    public double getSalarySalesman() {
-        return salarySalesman;
     }
 
     @Override
     public String toString() {
         NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
-        return "  CPF: " + getCpfSalesman() +
-                ", name: " + getNameSalesman() +
-                ", salary: R" + currencyFormat.format(getSalarySalesman())  + "\n";
+        return "  CPF: " + cpfSalesman +
+                ", name: " + nameSalesman +
+                ", salary: R" + currencyFormat.format(salarySalesman)  + "\n";
     }
 }

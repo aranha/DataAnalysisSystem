@@ -24,6 +24,7 @@ public final class ReadWriteFile {
             }
         } catch (IOException e) {
             System.err.println("File not found " + e.getMessage());
+            System.exit(0);
         }
     }
 }

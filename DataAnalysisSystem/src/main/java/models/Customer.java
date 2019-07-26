@@ -11,22 +11,10 @@ public class Customer {
         this.businessAreaCustomer = businessAreaCustomer;
     }
 
-    public String getCnpjCustomer() {
-        return cnpjCustomer;
-    }
-
-    public String getNameCustomer() {
-        return nameCustomer;
-    }
-
-    public String getBusinessAreaCustomer() {
-        return businessAreaCustomer;
-    }
-
     @Override
     public String toString() {
-        return "  CNPJ customer: " + getCnpjCustomer() +
-                ", name customer='" + getNameCustomer() +
-                ", business area customer='" + getCnpjCustomer() + "\n";
+        return "  CNPJ customer: " + cnpjCustomer +
+                ", name customer='" + nameCustomer +
+                ", business area customer='" + businessAreaCustomer + "\n";
     }
 }

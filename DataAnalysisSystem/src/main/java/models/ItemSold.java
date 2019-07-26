@@ -19,14 +19,6 @@ public class ItemSold {
         return idItemSold;
     }
 
-    public int getQuantityItemSold() {
-        return quantityItemSold;
-    }
-
-    public double getPriceItemSold() {
-        return priceItemSold;
-    }
-
     public double getValueSold() {
         return valueSold;
     }
@@ -34,9 +26,9 @@ public class ItemSold {
     @Override
     public String toString() {
         NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
-        return  "  id: " + getIdItemSold() +
-                ", quantity: " + getQuantityItemSold() +
-                ", price: R$" + getPriceItemSold() +
-                ", value sold: R" + currencyFormat.format(getValueSold()) + "\n";
+        return  "  id: " + idItemSold +
+                ", quantity: " + quantityItemSold +
+                ", price: R$" + currencyFormat.format(priceItemSold) +
+                ", value sold: R" + currencyFormat.format(valueSold) + "\n";
     }
 }

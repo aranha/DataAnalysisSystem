@@ -13,10 +13,6 @@ public class Sales {
         this.itemsSold = itemsSold;
     }
 
-    public int getIdSales() {
-        return idSales;
-    }
-
     public String getNameSalesman() {
         return nameSalesman;
     }
@@ -27,8 +23,8 @@ public class Sales {
 
     @Override
     public String toString() {
-        return  "  id sale: " + getIdSales() +
-                ", name saleman: " + getNameSalesman() +
-                ", list sales: " + getItemsSold() + "\n";
+        return  "  id sale: " + idSales +
+                ", name saleman: " + nameSalesman +
+                ", list sales: " + itemsSold + "\n";
     }
 }
