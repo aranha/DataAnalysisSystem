@@ -7,9 +7,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public final class ReadWriteFile {
     private static String OUTPUT_FILE_NAME = "report.dat";
@@ -47,15 +45,16 @@ public final class ReadWriteFile {
 
     private static List<File> getFileDat(){
         String EXTENSION = ".dat";
+        List<File> filesInPath = new ArrayList<>();
         try {
-            return Files.walk(Paths.get("/home/ilegra/Documentos/dataAnalysisSystem/")).
+            filesInPath = Files.walk(Paths.get("/home/ilegra/Documentos/dataAnalysisSystem/")).
                     filter(Files::isRegularFile).map(Path::toFile).
                     filter(file -> file.getName().endsWith(EXTENSION)).
                     filter(file -> !file.getName().equals(OUTPUT_FILE_NAME)).
                     collect(Collectors.toList());
         } catch (IOException e) {
             System.err.println("directory not found " + e.getMessage());
-            return null;
         }
+        return filesInPath;
     }
 }
