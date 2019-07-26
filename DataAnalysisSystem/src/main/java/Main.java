@@ -6,6 +6,5 @@ public class Main {
         ReadWriteFile.readFile();
         ReportOutput reportOutput = new ReportOutput();
         System.out.println(reportOutput.getReport());
-        reportOutput.worstSalesman();
     }
 }

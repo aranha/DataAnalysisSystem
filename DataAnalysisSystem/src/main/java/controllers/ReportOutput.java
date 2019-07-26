@@ -10,6 +10,13 @@ public class ReportOutput {
     private TypeData typeData = TypeData.getInstance();
     private double valueSaleOfWorstSalesman;
 
+    public String getReport(){
+        return  " Amount Customer: " + amountCustomer() + 
+                "\n Amount Salesman: " + amountSalesman() + 
+                "\n ID most expansive sale: " + idMostExpansiveSale() +
+                "\n Worst Salesman: " + worstSalesman();
+    }
+
     private int amountCustomer(){
         return typeData.getCustomersList().size();
     }
@@ -20,12 +27,12 @@ public class ReportOutput {
 
     private int idMostExpansiveSale(){
         return typeData.getItemsSoldList().
-            stream().
-            sorted(Comparator.comparing(ItemSold::getValueSold, Comparator.reverseOrder())).
-            collect(Collectors.toList()).get(0).getIdItemSold();
+                stream().
+                sorted(Comparator.comparing(ItemSold::getValueSold, Comparator.reverseOrder())).
+                collect(Collectors.toList()).get(0).getIdItemSold();
     }
 
-    public String worstSalesman(){
+    private String worstSalesman(){
         NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
         return typeData.getSalesmanList().stream().
                 filter(salesman -> salesman.getNameSalesman().equals(calculateWorstSalesman().firstKey())).
@@ -45,12 +52,5 @@ public class ReportOutput {
         });
         valueSaleOfWorstSalesman = salesmanWithTotalSales.firstEntry().getValue();
         return salesmanWithTotalSales;
-    }
-
-    public String getReport(){
-        return  " Amount Customer: " + amountCustomer() + 
-                "\n Amount Salesman: " + amountSalesman() + 
-                "\n ID most expansive sale: " + idMostExpansiveSale() +
-                "\n Worst Salesman: " + worstSalesman();
     }
 }

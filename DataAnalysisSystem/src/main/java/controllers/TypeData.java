@@ -19,6 +19,13 @@ public class TypeData {
 
     private static TypeData INSTANCE;
 
+    public synchronized static TypeData getInstance(){
+        if(INSTANCE == null){
+            INSTANCE = new TypeData();
+        }
+        return INSTANCE;
+    }
+
     public List<Salesman> getSalesmanList() {
         return salesmanList;
     }
@@ -47,18 +54,9 @@ public class TypeData {
             case 3:
                 addSale(listDataLine);
                 break;
+            default:
+                System.err.println("type data invalid");
         }
-    }
-
-    public static TypeData getInstance(){
-        if(INSTANCE == null){
-            synchronized (TypeData.class){
-                if(INSTANCE == null){
-                    INSTANCE = new TypeData();
-                }
-            }
-        }
-        return INSTANCE;
     }
 
     private void addSalesman(List<String> listDataLine){

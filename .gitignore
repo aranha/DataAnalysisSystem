@@ -12,4 +12,5 @@ settings.gradle
 /.recommenders/
 .vscode/
 *.txt
+*.dat
 /out/
