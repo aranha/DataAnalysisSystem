@@ -14,7 +14,7 @@ public class ReportOutputTest {
                 "Amount Salesman: 2\n" +
                 "ID most expensive sale: 1\n" +
                 "Worst Salesman:   CPF: 3245678865434, name: Renato, salary: R$40,000.99\n" +
-                "with a total sales of: R$1,694.00";
+                "with a total sales of: R$393.50";
         assertEquals(reportExpected, reportOutput.getReport());
     }
 }

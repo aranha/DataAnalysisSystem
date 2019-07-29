@@ -21,7 +21,7 @@ public class TypeData {
         if(INSTANCE == null){
             INSTANCE = new TypeData();
         }
-        return INSTANCE;
+         return INSTANCE;
     }
 
     public Set<Salesman> getSalesmanSet() {
@@ -71,7 +71,7 @@ public class TypeData {
         String businessArea = listDataLine.get(3);
         Customer customer = new Customer(cnpj, name, businessArea);
         customersList.add(customer);
-    }
+}
 
     private void addSale(List<String> listDataLine){
         int idSale = Integer.parseInt(listDataLine.get(1));
