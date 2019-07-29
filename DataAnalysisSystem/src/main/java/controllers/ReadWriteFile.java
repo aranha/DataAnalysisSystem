@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public final class ReadWriteFile {
     private static String OUTPUT_FILE_NAME = "report.done.dat";
@@ -49,8 +50,8 @@ public final class ReadWriteFile {
         String EXTENSION = ".dat";
         String HOME_PATH_IN = System.getProperty("user.home") + "/data/in/";
         List<File> filesInPath = new ArrayList<>();
-        try {
-            filesInPath = Files.walk(Paths.get(HOME_PATH_IN)).
+        try (Stream<Path> path = Files.walk(Paths.get(HOME_PATH_IN))){
+            filesInPath = path.
                     filter(Files::isRegularFile).map(Path::toFile).
                     filter(file -> !file.getName().equals(OUTPUT_FILE_NAME)).
                     filter(file -> file.getName().endsWith(EXTENSION)).
