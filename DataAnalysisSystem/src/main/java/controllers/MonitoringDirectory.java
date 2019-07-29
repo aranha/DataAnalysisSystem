@@ -11,8 +11,8 @@ import java.nio.file.WatchService;
 import java.util.Optional;
 
 
-public class MonitoringDirectory {
-	public void monitoringDirectory(String delimiter) {
+public final class MonitoringDirectory {
+	public static void monitoringDirectory(String delimiter) {
 		ReadWriteFile.readFile(delimiter);
 		try (WatchService watchService = FileSystems.getDefault().newWatchService()){
 			Path path = Paths.get(System.getProperty("user.home") + "/data/in/");
