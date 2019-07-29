@@ -12,9 +12,9 @@ public class ReportOutput {
 
     public String getReport(){
         return  " Amount Customer: " + amountCustomer() + 
-                "\n Amount Salesman: " + amountSalesman() + 
-                "\n ID most expansive sale: " + idMostExpansiveSale() +
-                "\n Worst Salesman: " + worstSalesman();
+                "\nAmount Salesman: " + amountSalesman() + 
+                "\nID most expensive sale: " + idMostExpansiveSale() +
+                "\nWorst Salesman: " + worstSalesman();
     }
 
     private int amountCustomer(){
@@ -26,8 +26,7 @@ public class ReportOutput {
     }
 
     private int idMostExpansiveSale(){
-        return typeData.getItemsSoldList().
-                stream().
+        return typeData.getItemsSoldList().stream().
                 sorted(Comparator.comparing(ItemSold::getValueSold, Comparator.reverseOrder())).
                 collect(Collectors.toList()).get(0).getIdItemSold();
     }
@@ -36,7 +35,7 @@ public class ReportOutput {
         NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
         return typeData.getSalesmanList().stream().
                 filter(salesman -> salesman.getNameSalesman().equals(calculateWorstSalesman().firstKey())).
-                findFirst().get().toString() + " with a total sales of: R" + currencyFormat.format(valueSaleOfWorstSalesman);
+                findFirst().get().toString() + "with a total sales of: R" + currencyFormat.format(valueSaleOfWorstSalesman);
     }
 
     private TreeMap<String, Double> calculateWorstSalesman(){
@@ -44,9 +43,11 @@ public class ReportOutput {
         typeData.getSalesList().forEach(sales -> {
             if(salesmanWithTotalSales.get(sales.getNameSalesman()) != null){
                 salesmanWithTotalSales.put(sales.getNameSalesman(), salesmanWithTotalSales.get(sales.getNameSalesman())
-                        + sales.getItemsSold().stream().mapToDouble(ItemSold::getValueSold).sum());
+                        + sales.getItemsSold().stream().
+                        mapToDouble(ItemSold::getValueSold).sum());
             }else{
-                salesmanWithTotalSales.put(sales.getNameSalesman(), sales.getItemsSold().stream().mapToDouble(ItemSold::getValueSold).sum());
+                salesmanWithTotalSales.put(sales.getNameSalesman(), sales.getItemsSold().stream().
+                		mapToDouble(ItemSold::getValueSold).sum());
             }
 
         });
