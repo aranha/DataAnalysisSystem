@@ -22,13 +22,15 @@ public final class ReadWriteFile {
         writeFileReport();
     }
     
-    private static void processFile(String file, String delimiter){
+    public static List<List<String>> processFile(String file, String delimiter){
+        List<List<String>> strings = new ArrayList<>();
         try (FileReader reader = new FileReader(file)){
             BufferedReader buffer = new BufferedReader(reader);
             TypeData typeData = TypeData.getInstance();
             String line = buffer.readLine();
             while (line != null){
                 List<String> listSpitedData = Arrays.asList(line.trim().split(delimiter));
+                strings.add(listSpitedData);
                 typeData.setTypeData(listSpitedData);
                 line = buffer.readLine();
             }
@@ -36,6 +38,7 @@ public final class ReadWriteFile {
             System.err.println("Files not found " + e.getMessage());
             System.exit(0);
         }
+        return strings;
     }
 
     private static void writeFileReport(){

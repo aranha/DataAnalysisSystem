@@ -5,13 +5,11 @@ import models.ItemSold;
 import models.Sales;
 import models.Salesman;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class TypeData {
-    private List<Salesman> salesmanList = new ArrayList<>();
-    private List<Customer> customersList = new ArrayList<>();
+    private Set<Salesman> salesmanList = new HashSet<>();
+    private Set<Customer> customersList = new HashSet<>();
     private List<Sales> salesList = new ArrayList<>();
     private List<ItemSold> itemsSoldList = new ArrayList<>();
 
@@ -26,11 +24,11 @@ public class TypeData {
         return INSTANCE;
     }
 
-    public List<Salesman> getSalesmanList() {
+    public Set<Salesman> getSalesmanSet() {
         return salesmanList;
     }
 
-    public List<Customer> getCustomersList() {
+    public Set<Customer> getCustomersSet() {
         return customersList;
     }
 

@@ -18,11 +18,11 @@ public class ReportOutput {
     }
 
     private int amountCustomer(){
-        return typeData.getCustomersList().size();
+        return typeData.getCustomersSet().size();
     }
 
     private int amountSalesman(){
-        return typeData.getSalesmanList().size();
+        return typeData.getSalesmanSet().size();
     }
 
     private int idMostExpansiveSale(){
@@ -33,7 +33,7 @@ public class ReportOutput {
 
     private String worstSalesman(){
         NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
-        return typeData.getSalesmanList().stream().
+        return typeData.getSalesmanSet().stream().
                 filter(salesman -> salesman.getNameSalesman().equals(calculateWorstSalesman().firstKey())).
                 findFirst().get().toString() + "with a total sales of: R" + currencyFormat.format(valueSaleOfWorstSalesman);
     }
