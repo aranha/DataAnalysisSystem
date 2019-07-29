@@ -13,8 +13,13 @@ public final class ReadWriteFile {
     private static String OUTPUT_FILE_NAME = "report.done.dat";
 
     private ReadWriteFile(){}
-
-    private static void readFile(String file, String delimiter){
+    
+    public static void readFile(String separator) {
+    	getAllFileDat().forEach(file -> processFile(file.getName(), separator));
+        writeFileReport();
+    }
+    
+    private static void processFile(String file, String delimiter){
         try (FileReader reader = new FileReader(file)){
             BufferedReader buffer = new BufferedReader(reader);
             TypeData typeData = TypeData.getInstance();
@@ -39,11 +44,6 @@ public final class ReadWriteFile {
         }
     }
 
-    public static void setAFileWillBeRead(String separator) {
-    	getAllFileDat().forEach(file -> readFile(file.getName(), separator));
-        writeFileReport();
-    }
-    
     private static List<File> getAllFileDat(){
         String EXTENSION = ".dat";
         List<File> filesInPath = new ArrayList<>();
