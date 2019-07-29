@@ -15,7 +15,7 @@ public final class ReadWriteFile {
     private ReadWriteFile(){}
     
     public static void readFile(String separator) {
-    	getAllFileDat().forEach(file -> processFile(file.getName(), separator));
+    	getAllFileDat().forEach(file -> processFile(file.getPath(), separator));
         writeFileReport();
     }
     
@@ -37,7 +37,8 @@ public final class ReadWriteFile {
 
     private static void writeFileReport(){
         ReportOutput reportOutput = new ReportOutput();
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(OUTPUT_FILE_NAME, false))){
+        String HOME_PATH_OUT = System.getProperty("user.home") + "/data/out/";
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(HOME_PATH_OUT + OUTPUT_FILE_NAME, false))){
             writer.write(reportOutput.getReport());
         } catch (IOException e) {
             System.err.println("Cannot write a file, cause happened an error + " + e.getMessage());
@@ -46,9 +47,10 @@ public final class ReadWriteFile {
 
     private static List<File> getAllFileDat(){
         String EXTENSION = ".dat";
+        String HOME_PATH_IN = System.getProperty("user.home") + "/data/in/";
         List<File> filesInPath = new ArrayList<>();
         try {
-            filesInPath = Files.walk(Paths.get("")).
+            filesInPath = Files.walk(Paths.get(HOME_PATH_IN)).
                     filter(Files::isRegularFile).map(Path::toFile).
                     filter(file -> !file.getName().equals(OUTPUT_FILE_NAME)).
                     filter(file -> file.getName().endsWith(EXTENSION)).
