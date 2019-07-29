@@ -8,8 +8,8 @@ import models.Salesman;
 import java.util.*;
 
 public class TypeData {
-    private Set<Salesman> salesmanList = new HashSet<>();
-    private Set<Customer> customersList = new HashSet<>();
+    private List<Salesman> salesmanList = new ArrayList<>();
+    private List<Customer> customersList = new ArrayList<>();
     private List<Sales> salesList = new ArrayList<>();
     private List<ItemSold> itemsSoldList = new ArrayList<>();
 
@@ -24,11 +24,11 @@ public class TypeData {
          return INSTANCE;
     }
 
-    public Set<Salesman> getSalesmanSet() {
+    public List<Salesman> getSalesmanSet() {
         return salesmanList;
     }
 
-    public Set<Customer> getCustomersSet() {
+    public List<Customer> getCustomersSet() {
         return customersList;
     }
 
@@ -55,6 +55,13 @@ public class TypeData {
             default:
                 System.err.println("type data invalid");
         }
+    }
+    
+    public void clearAllLists() {
+    	salesmanList.clear();
+    	customersList.clear();
+    	salesList.clear();
+    	itemsSoldList.clear();
     }
 
     private void addSalesman(List<String> listDataLine){
