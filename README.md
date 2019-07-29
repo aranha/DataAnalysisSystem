@@ -1,3 +1,4 @@
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=aranha_DataAnalysisSystem&metric=alert_status)](https://sonarcloud.io/dashboard?id=aranha_DataAnalysisSystem)
 # Data Analysis System
 Sistema desenvolvido como desafio final da trilha core-engineering.
 ## Resumo principal
