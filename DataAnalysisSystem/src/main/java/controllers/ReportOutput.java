@@ -11,12 +11,10 @@ public class ReportOutput {
     private double valueSaleOfWorstSalesman;
 
     public String getReport(){
-        StringBuilder report = new StringBuilder();
-        report.append(" Amount Customer: ").append(amountCustomer()).
+        return new StringBuilder().append(" Amount Customer: ").append(amountCustomer()).
                append("\nAmount Salesman: ").append(amountSalesman()).
                append("\nID most expensive sale: ").append(idMostExpansiveSale()).
-               append("\nWorst Salesman: ").append(worstSalesman());
-        return report.toString();
+               append("\nWorst Salesman: ").append(worstSalesman()).toString();
     }
 
     private int amountCustomer(){

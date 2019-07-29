@@ -1,5 +1,7 @@
 package controllers;
 
+import models.DirectoryEmptyException;
+
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -58,6 +60,9 @@ public final class ReadWriteFile {
                     collect(Collectors.toList());
         } catch (IOException e) {
             System.err.println("directory not found " + e.getMessage());
+        }
+        if(filesInPath.isEmpty()){
+            throw new DirectoryEmptyException("don't have a files in directory");
         }
         return filesInPath;
     }
